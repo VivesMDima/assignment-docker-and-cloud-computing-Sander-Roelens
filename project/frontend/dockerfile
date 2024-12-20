@@ -1,0 +1,7 @@
+FROM node:18-slim
+WORKDIR /frontend
+COPY eindopdrachtCrossplatform ./eindopdrachtCrossplatform
+WORKDIR /frontend/eindopdrachtCrossplatform
+RUN npm install
+EXPOSE 8081
+CMD ["npm", "start"]
