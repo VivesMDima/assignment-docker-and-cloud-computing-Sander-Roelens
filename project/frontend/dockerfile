@@ -5,3 +5,4 @@ WORKDIR /frontend/eindopdrachtCrossplatform
 RUN npm install
 EXPOSE 8081
 CMD ["npm", "start"]
+#docker run -p 8081:8081 frontend
