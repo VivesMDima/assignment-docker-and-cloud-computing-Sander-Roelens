@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ../project/backend
+      dockerfile: dockerfile
+    ports:
+      - 8080:8080
+
+  frontend:
+    build:
+      context: ../project/frontend
+      dockerfile: dockerfile
+    ports:
+      - 8081:8081
+
+#docker-compose build
+#docker-compose up
