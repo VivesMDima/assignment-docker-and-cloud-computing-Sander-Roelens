@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: NodePort
+  ports:
+    - port: 8081 
+      targetPort: 8081 
+      nodePort: 30002
+  selector:
+    app: fronten
+#kubectl apply -f service-frontend.yaml

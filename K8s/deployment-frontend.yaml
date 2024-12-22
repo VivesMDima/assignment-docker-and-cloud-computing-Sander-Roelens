@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: frontend 
+        ports:
+        - containerPort: 8081
+        env:
+        - name: NODE_ENV
+          value: "production" 
+
+#kubectl apply -f deployment-frontend.yaml
