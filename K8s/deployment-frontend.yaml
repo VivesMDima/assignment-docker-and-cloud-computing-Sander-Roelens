@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 3 
+  replicas: 3
   selector:
     matchLabels:
       app: frontend
@@ -14,11 +14,15 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: frontend 
+        image: sanderroelens/frontend:latest
         ports:
         - containerPort: 8081
         env:
         - name: NODE_ENV
-          value: "production" 
+          value: "prod"
 
+
+#minikube start
 #kubectl apply -f deployment-frontend.yaml
+#minikube service frontend
+#http://127.0.0.1:57528/api/swagger-ui/index.html

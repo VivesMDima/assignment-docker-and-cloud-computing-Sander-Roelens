@@ -1,0 +1,29 @@
+replicaCount: 3
+image:
+  tag: latest
+  pullPolicy: IfNotPresent
+
+frontend:
+  name: frontend
+  replicaCount: 3
+  image:
+    repository: sanderroelens/frontend
+    tag: latest
+  service:
+    type: NodePort
+    port: 8081
+    targetPort: 8081
+    nodePort: 30001
+
+backend:
+  name: backend
+  replicaCount: 3
+  image:
+    repository: sanderroelens/backend
+    tag: latest
+  service:
+    type: NodePort
+    port: 8080
+    targetPort: 8080
+    nodePort: 30000  
+  

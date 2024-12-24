@@ -1,0 +1,20 @@
+apiVersion: v2
+name: anomaly-app
+description: helm
+version: 1.0.0  
+appVersion: "1.0.0"
+
+#helm install my-app ./helm --values ./helm/values.yaml
+#helm upgrade --install my-app ./helm --values ./helm/values.yaml
+
+#helm install my-app ./helm --values ./helm/values.yaml --values ./helm/values-prod.yaml
+
+# kubectl get services
+# kubectl get deployments
+# kubectl get pods
+
+# kubectl port-forward {pod name} 8081:8081
+# kubectl port-forward backend-5978d58997-nxgs9 8080:8080
+
+
+# helm uninstall my-app

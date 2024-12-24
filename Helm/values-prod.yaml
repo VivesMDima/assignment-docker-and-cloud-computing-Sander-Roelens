@@ -1,0 +1,6 @@
+backend:
+  environment: "prod"
+
+
+frontend:
+  environment: "prod"

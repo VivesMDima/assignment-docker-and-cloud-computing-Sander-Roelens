@@ -3,6 +3,7 @@ WORKDIR /frontend
 COPY eindopdrachtCrossplatform ./eindopdrachtCrossplatform
 WORKDIR /frontend/eindopdrachtCrossplatform
 RUN npm install
+ENV NODE_ENV=production
 EXPOSE 8081
 CMD ["npm", "start"]
 #docker run -p 8081:8081 frontend

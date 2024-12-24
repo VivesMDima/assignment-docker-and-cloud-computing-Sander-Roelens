@@ -14,10 +14,14 @@ spec:
     spec:
       containers:
       - name: backend
-        image: backend
+        image: sanderroelens/backend:latest
         ports:
         - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "dev"
+
+#minikube start
 #kubectl apply -f deployment-backend.yaml
+#minikube service backend
+#http://127.0.0.1:57528/api/swagger-ui/index.html

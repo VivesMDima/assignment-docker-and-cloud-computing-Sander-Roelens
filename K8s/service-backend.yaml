@@ -6,8 +6,9 @@ spec:
   type: NodePort 
   ports:
     - port: 8080 
-      targetPort: 8080 
-      nodePort: 30001 
+      targetPort: 8080
+      nodePort: 30000
   selector:
     app: backend
 #kubectl apply -f service-backend.yaml
+#http://127.0.0.1:57528/
