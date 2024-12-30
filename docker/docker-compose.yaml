@@ -14,6 +14,9 @@ services:
       dockerfile: dockerfile
     ports:
       - 8081:8081
+    environment:
+      - HOST=0.0.0.0
+      - NODE_ENV=production
 
 #docker-compose build
 #docker-compose up

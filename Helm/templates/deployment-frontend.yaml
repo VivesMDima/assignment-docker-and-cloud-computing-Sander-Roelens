@@ -13,10 +13,21 @@ spec:
         app: {{ .Values.frontend.name }}
     spec:
       containers:
-        - name: {{ .Values.frontend.name }}
-          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
-          ports:
-            - containerPort: {{ .Values.frontend.service.targetPort }}
-          env:
-            - name: NODE_ENV
-              value: "{{ .Values.frontend.environment }}"
+      - name: {{ .Values.frontend.name }}
+        image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+        imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.frontend.service.targetPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.frontend.name }}
+spec:
+  type: {{ .Values.frontend.service.type }}
+  ports:
+    - port: {{ .Values.frontend.service.port }}
+      targetPort: {{ .Values.frontend.service.targetPort }}
+      nodePort: {{ .Values.frontend.service.nodePort }}
+  selector:
+    app: {{ .Values.frontend.name }}

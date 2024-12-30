@@ -19,7 +19,7 @@ spec:
         - containerPort: 8081
         env:
         - name: NODE_ENV
-          value: "prod"
+          value: "production"
 
 
 #minikube start

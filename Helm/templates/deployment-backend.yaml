@@ -13,10 +13,21 @@ spec:
         app: {{ .Values.backend.name }}
     spec:
       containers:
-        - name: {{ .Values.backend.name }}
-          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
-          ports:
-            - containerPort: {{ .Values.backend.service.targetPort }}
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: "{{ .Values.backend.environment }}"
+      - name: {{ .Values.backend.name }}
+        image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+        imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.backend.service.targetPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.backend.name }}
+spec:
+  type: {{ .Values.backend.service.type }}
+  ports:
+    - port: {{ .Values.backend.service.port }}
+      targetPort: {{ .Values.backend.service.targetPort }}
+      nodePort: {{ .Values.backend.service.nodePort }}
+  selector:
+    app: {{ .Values.backend.name }}
