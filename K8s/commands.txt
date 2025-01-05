@@ -1,0 +1,19 @@
+ minikube start
+kubectl config current-context
+kubectl config use-context minikube
+& minikube -p minikube docker-env | Invoke-Expression
+
+kubectl apply -f .\K8s\
+
+minikube tunnel
+
+kubectl get pods
+kubectl get deployments
+kubectl get services
+
+
+kubectl port-forward service/backend 8080:8080
+kubectl port-forward service/frontend 8081:8081
+
+http://localhost:8081
+http://localhost:8080

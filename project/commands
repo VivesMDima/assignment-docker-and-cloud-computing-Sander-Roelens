@@ -1,0 +1,9 @@
+docker build -t sanderroelens/backend:latest .
+docker build -t sanderroelens/frontend:latest .
+
+docker tag sanderroelens/backend:latest sanderroelens/backend:latest
+docker push sanderroelens/backend:latest
+
+
+docker tag sanderroelens/frontend:latest sanderroelens/frontend:latest
+docker push sanderroelens/frontend:latest
