@@ -1,11 +1,4 @@
 # Documentatie
-Een deel van je oplevering is het analysedossier. Daarin documenteer je het volledig
-verloop van je project. Voor een aantal van de evaluatiecriteria is het analysedossier
-de enige vorm van evaluatie. Dit is bijvoorbeeld zo voor de Docker build van je
-image, docker-compose en minikube. Voorzie dus duidelijke screenshots en
-voldoende uitleg.
-Documenteer ook duidelijke je deployment in de cloud.
-
 
 # Dockerfiles:
 ## [backend](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/4486513e3f799b083a6fb8f1feef4dccea1ffc17/project/backend/dockerfile)
@@ -17,10 +10,35 @@ De dockerfile can de frontend applicatie is gemaakt op de standaard manier. Eers
 
 # Docker compose:
 
-De docker compose file is een simpel bestand dat beide projecten tegelijk aan zet. De poorten moeten zelf nog gespecifieerd worden
+De docker compose file is een simpel bestand dat beide projecten tegelijk laat draaien. De [poorten](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/5f5c47312a6eaa1511035a73c0dafe3ba0ad4832/docker/docker-compose.yaml#L15C1-L16C18) moeten zelf nog gespecifieerd worden
 
 # Kubernetes
-Beide deployments hebben 3 pods, de images worden gepult van dockerhub en krijgen dezelfd ports als in de dockercompose file. De service file bevat het ip adress van de service 
+Beide deployments hebben [3 pods](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/5f5c47312a6eaa1511035a73c0dafe3ba0ad4832/K8s/deployment-backend.yaml#L6), [de images](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/5f5c47312a6eaa1511035a73c0dafe3ba0ad4832/K8s/deployment-backend.yaml#L17C1-L18C1) worden gepult van dockerhub en krijgen dezelfd ports als in de dockercompose file. [De service](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/5f5c47312a6eaa1511035a73c0dafe3ba0ad4832/K8s/service-backend.yaml#L8) file bevat de poorten van de service 
 
 # Helm
-Helm draait net zoals k8s beide tegelijk, maar er wordt gebruik gemaakt van templates. Deze templates zijn hetzelfde als die van k8s, maar heeft de waarden in de values.yaml bestanden opgeslagen, op deze manier kunnen er snel veranderingen gemaakt worden
+Helm draait net zoals k8s beide tegelijk, maar er wordt gebruik gemaakt van [templates](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/5f5c47312a6eaa1511035a73c0dafe3ba0ad4832/Helm/templates/deployment-backend.yaml#L1). Deze templates zijn hetzelfde als die van k8s, maar heeft de waarden in de [values.yaml](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/5f5c47312a6eaa1511035a73c0dafe3ba0ad4832/Helm/values.yaml#L1) bestanden opgeslagen, op deze manier kunnen er snel veranderingen gemaakt worden
+
+# Google cloud
+
+Maak bij "kubernetes engine" een cluster aan
+In de console worden volgende commandos getypt
+
+    gcloud container clusters get-credentials dockercloud --zone europe-west3 --project docker-and-cloud
+
+    kopieer nodige bestanden over
+
+    kubectl apply -f ./K8s
+
+    kubectl get svc # om de ip adressen te zien
+
+
+# CI/CD
+
+Cloud build
+
+Triggers 
+create triggers
+(kan niet toevoegen enkel maar de repos van mijn eigen account)
+
+# Cloudflare
+
