@@ -1,4 +1,7 @@
 # Documentatie
+Frontend: 35.198.101.115:8080
+Backend: 34.141.96.44:8081
+
 
 # Dockerfiles:
 ## [backend](https://github.com/VivesMDima/assignment-docker-and-cloud-computing-Sander-Roelens/blob/4486513e3f799b083a6fb8f1feef4dccea1ffc17/project/backend/dockerfile)
