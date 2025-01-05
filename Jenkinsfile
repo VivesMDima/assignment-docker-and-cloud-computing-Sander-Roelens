@@ -1,24 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
-        stage('Build Backend') {
+        stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t $backend:latest -f Dockerfile.backend .'
-                }
-            }
-        }
-
-        stage('Build Frontend') {
-            steps {
-                script {
-                    sh 'docker build -t frontend:latest -f Dockerfile.frontend .'
+                    sh 'docker build -t sanderroelens/backend:latest /home/sander_roelens/assignment-docker-and-cloud-computing-Sander-Roelens/project/backend'
+                    sh 'docker build -t sanderroelens/frontend:latest /home/sander_roelens/assignment-docker-and-cloud-computing-Sander-Roelens/project/backend'
                 }
             }
         }
@@ -38,8 +25,9 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker run -d --name backend -p 8080:8080 backend:latest
-                    docker run -d --name frontend -p 8081:8081 frontend:latest
+                    kubectl apply -f  /home/sander_roelens/assignment-docker-and-cloud-computing-Sander-Roelens/K8s/
+                    kubectl rollout restart deployment frontend
+                    kubectl rollout restart deployment backend
                     """
                 }
             }

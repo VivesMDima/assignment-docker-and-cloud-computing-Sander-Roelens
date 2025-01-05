@@ -24,11 +24,10 @@ Helm draait net zoals k8s beide tegelijk, maar er wordt gebruik gemaakt van [tem
 # Google cloud
 
 Maak bij "kubernetes engine" een cluster aan
+Kopieer dan alle bestanden over
 In de console worden volgende commandos getypt
 
     gcloud container clusters get-credentials dockercloud --zone europe-west3 --project docker-and-cloud
-
-    kopieer nodige bestanden over
 
     kubectl apply -f ./K8s
 
